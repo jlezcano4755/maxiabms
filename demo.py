@@ -14,7 +14,7 @@ VERSION = "3.3"
 NOMBRE = "Control_Prueba"
 LOCAL_IP = "localhost"
 broker_address = "localhost"
-mbus_gwy1 = '192.168.17.55'  # Direccion de medidor
+mbus_gwy1 = '172.20.10.68'  # Direccion de medidor
 
 MINUTO = 60
 HORA = 3600  # HORA = 60 * 60 segundos
