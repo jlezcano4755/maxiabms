@@ -35,7 +35,7 @@ cargoPEdistribKwh = 0.00725
 cargoAPublicoSKwh = 0.00180
 cargoAPublicoCKwh = 0.00382
 
-mqtt_exec1 = 1
+mqtt_exec1 = 0
 
 
 ########################################
@@ -189,7 +189,8 @@ def mqtt_MPE1(cola, shm_1):
             for i in range(len(slv1_array_)):
                 client_.publish("sensores", (slv1_array_[i]['data']) + " valor=" + str(slv1_array_[i]['valor']), qos=0,
                                 retain=False)
-                print("sensores:", slv1_array_[i]['data'] + " valor=" + str(slv1_array_[i]['valor']))
+        for i in range(len(slv1_array_)):
+            print("sensores:", slv1_array_[i]['data'] + " valor=" + str(slv1_array_[i]['valor']))
         time.sleep(0.3)
 
 
@@ -253,7 +254,7 @@ def lecturaregistrostr1(cola, shm_1):
                         sock1.close()
                         print("sock1 reset")
                         sys.stdout.flush()
-                        mqtt_exec1 = 0
+                        #mqtt_exec1 = 0
                         slv1_read = 0
                         slv1_fail = 1
                         time.sleep(0.5)
@@ -319,7 +320,7 @@ def lecturaregistrostr1(cola, shm_1):
                     response2 = None
                     response3 = None
                     slv1_read = 0
-                    mqtt_exec1 = 1
+                    #mqtt_exec1 = 1
                     time.sleep(0.01)
                     sock1.close()
 
@@ -327,7 +328,7 @@ def lecturaregistrostr1(cola, shm_1):
             print("Exception", datetime.now())
             sys.stdout.flush()
             gwy_fail = 1
-            mqtt_exec1 = 0
+            #mqtt_exec1 = 0
             time.sleep(5)
         time.sleep(0.3)
 
