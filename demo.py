@@ -13,7 +13,7 @@ from numpy import array, ndarray, str_, float32
 VERSION = "3.3"
 NOMBRE = "Control_Prueba"
 LOCAL_IP = "localhost"
-broker_address = "localhost"
+broker_address = "172.20.10.155"
 mbus_gwy1 = '172.20.10.68'  # Direccion de medidor
 
 MINUTO = 60
