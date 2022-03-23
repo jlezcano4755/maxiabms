@@ -10,4 +10,4 @@ if !([ -x "$(command -v docker)" ]); then
   	apt-get -qq install docker-ce docker-ce-cli containerd.io -y
 fi
 echo 'Running Demo...'
-docker run alecjz4755/maxiabms:demo
+docker run -it alecjz4755/maxiabms:demo
