@@ -725,7 +725,7 @@ def cada_semana(cola, shm_1):
         time.sleep(SEMANA)
 
 
-def cada_mes(cola, shm_1, shm_3):
+def cada_mes(cola, shm_1):
     p = multiprocessing.current_process()
 
     slv1_array_ = ndarray(core_array_1.shape, dtype=core_array_1.dtype, buffer=shm_1.buf)
