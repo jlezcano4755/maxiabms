@@ -342,7 +342,7 @@ def demanda_cada_15minutos(cola, shm_1):
     curr_minute = cola.get(True)
     print(curr_minute)
     sys.stdout.flush()
-    client_ = mqtt_send()
+    #client_ = mqtt_send()
     # total system power demand
     tr1DUpoweracn = slv1_array_[15]['valor']
 
@@ -392,7 +392,7 @@ def cada_minuto(cola, shm_1):
         time.sleep(0.010)
         curr_second = datetime.now()
 
-    client_ = mqtt_send1()  # El que va a recibir los comandos
+    #client_ = mqtt_send1()  # El que va a recibir los comandos
 
     for num in range(7):
         cola.put(curr_second, True)
@@ -484,7 +484,7 @@ def cada_hora(cola, shm_1):
     curr_minute = cola.get(True)
     print("curr_hora:", curr_minute.hour)
     sys.stdout.flush()
-    client_ = mqtt_send()
+    #client_ = mqtt_send()
     valor_actualtr1 = 0
     tr1EnergiaAAcumuladafn = 0
     tr1EnergiaAAcumuladahf = 0
@@ -571,7 +571,7 @@ def cada_dia(cola, shm_1):
     curr_day = cola.get(True)
     print("curr_day:", curr_day.day)
     sys.stdout.flush()
-    client_ = mqtt_send()
+    #client_ = mqtt_send()
     valor_actualtr1 = 0
     tr1EnergiaAAcumuladafn = 0
     tr1EnergiaAAcumuladadf = 0
@@ -653,7 +653,7 @@ def cada_semana(cola, shm_1):
     dia_semana = curr_day.weekday()
     print("curr_day_week:", dia_semana)
     sys.stdout.flush()
-    client_ = mqtt_send()
+    #client_ = mqtt_send()
     valor_actualtr1 = 0
     tr1EnergiaAAcumuladafn = 0
     tr1EnergiaAAcumuladawf = 0
@@ -738,7 +738,7 @@ def cada_mes(cola, shm_1):
     curr_dia_mes = cola.get(True)
     print("curr_month:", curr_dia_mes.month)
     sys.stdout.flush()
-    client_ = mqtt_send()
+    #client_ = mqtt_send()
     valor_actualtr1 = 0
     tr1EnergiaAAcumuladafn = 0
     tr1EnergiaAAcumuladamof = 0
