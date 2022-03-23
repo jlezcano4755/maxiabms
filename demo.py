@@ -560,7 +560,7 @@ def cada_hora(cola, shm_1):
         time.sleep(HORA)
 
 
-def cada_dia(cola, shm_1, shm_3):
+def cada_dia(cola, shm_1):
     p = multiprocessing.current_process()
 
     slv1_array_ = ndarray(core_array_1.shape, dtype=core_array_1.dtype, buffer=shm_1.buf)
