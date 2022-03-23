@@ -13,7 +13,7 @@ from numpy import array, ndarray, str_, float32
 VERSION = "3.3"
 NOMBRE = "Control_Prueba"
 LOCAL_IP = "localhost"
-broker_address = "172.20.10.155"
+broker_address = "localhost"
 mbus_gwy1 = '172.20.10.68'  # Direccion de medidor
 
 MINUTO = 60
@@ -189,6 +189,7 @@ def mqtt_MPE1(cola, shm_1):
             for i in range(len(slv1_array_)):
                 client_.publish("sensores", (slv1_array_[i]['data']) + " valor=" + str(slv1_array_[i]['valor']), qos=0,
                                 retain=False)
+                print("sensores:", slv1_array_[i]['data'] + " valor=" + str(slv1_array_[i]['valor']))
         time.sleep(0.3)
 
 
@@ -837,6 +838,7 @@ if __name__ == '__main__':
     cpus = cpu_count()
     print("Número de cpus:", cpus)
     print("Prueba:", VERSION)
+    print("NUEVO")
     sys.stdout.flush()
     try:
         f = open('/home/maxia/myapp/constants.json', "r")
