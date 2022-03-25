@@ -19,11 +19,12 @@ function lanm() {
 	done
 }
 
+clear
 branch=${1}
 if $(is_in_remote ${branch}); then
 	cd /tmp
 	git clone https://unsecusr:unsecpwd1@github.com/jlezcano4755/maxiabms.git -b ${branch} >/dev/null 2>&1 &
-	lanm $! 'Cloning project...'
+	lanm $! 'Cloning project...' && clear
 	
 	echo Configuring mosquitto...
 	# Configuración de Mosquitto
@@ -52,9 +53,9 @@ if $(is_in_remote ${branch}); then
 	#Plantillas de Correo Grafana a MaxiaBMS
 	cp -r /tmp/maxiabms/config/grafana/emails/ /usr/share/grafana/public/
 	service grafana-server start >/dev/null 2>&1
-
+	clear
 	pip3.8 install -r /tmp/maxiabms/src/requirements.txt >/dev/null 2>&1 &
-	lanm $! 'Configuring Python environment...'
+	lanm $! 'Configuring Python environment...' && clear
 	
 	echo Running project...
 	python3.8 /tmp/maxiabms/src/app.py
