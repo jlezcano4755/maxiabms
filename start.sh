@@ -53,7 +53,8 @@ if $(is_in_remote ${branch}); then
 	cp /tmp/maxiabms/config/grafana/fav32.png /usr/share/grafana/public/img/
 	#Plantillas de Correo Grafana a MaxiaBMS
 	cp -r /tmp/maxiabms/config/grafana/emails/ /usr/share/grafana/public/
-	/tmp/maxiabms/config/grafana/traduccion-maxiabms.sh >/dev/null 2>&1 &
+	chmod +x /tmp/maxiabms/config/grafana/traduccion-maxiabms.sh
+	sh /tmp/maxiabms/config/grafana/traduccion-maxiabms.sh >/dev/null 2>&1 &
 	lanm $! 'Configuring Grafana...' && clear
 	
 	
