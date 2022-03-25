@@ -14,7 +14,7 @@ function lanm() {
 	while kill -0 ${1} 2>/dev/null
 	do
 	  i=$(( (i+1) %4 ))
-	  printf "\r{2} ${spin:$i:1}"
+	  printf "\r${2} ${spin:$i:1}"
 	  sleep .1
 	done
 }
@@ -22,8 +22,8 @@ function lanm() {
 branch=${1}
 if $(is_in_remote ${branch}); then
 	cd /tmp
-	echo Cloning project...
-	git clone https://unsecusr:unsecpwd1@github.com/jlezcano4755/maxiabms.git -b ${branch} >/dev/null 2>&1
+	git clone https://unsecusr:unsecpwd1@github.com/jlezcano4755/maxiabms.git -b ${branch} >/dev/null 2>&1 &
+	lanm $! 'Cloning project...'
 	
 	echo Configuring mosquitto...
 	# Configuración de Mosquitto
@@ -44,7 +44,7 @@ if $(is_in_remote ${branch}); then
 	cp /tmp/maxiabms/config/influxdb/passwd /etc/mosquitto/
 	service influxdb start >/dev/null 2>&1
 
-	echo Configuring grafana...
+
 	# Configuraciónde Grafana
 	service grafana-server stop >/dev/null 2>&1
 	cp /tmp/maxiabms/config/grafana/grafana_icon.svg /usr/share/grafana/public/img/
@@ -53,9 +53,8 @@ if $(is_in_remote ${branch}); then
 	cp -r /tmp/maxiabms/config/grafana/emails/ /usr/share/grafana/public/
 	service grafana-server start >/dev/null 2>&1
 
-	echo Configuring python environment...
 	pip3.8 install -r /tmp/maxiabms/src/requirements.txt >/dev/null 2>&1 &
-	lanm $! "Configuring Python environment..."
+	lanm $! 'Configuring Python environment...'
 	
 	echo Running project...
 	python3.8 /tmp/maxiabms/src/app.py
