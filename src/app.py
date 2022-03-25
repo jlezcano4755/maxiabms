@@ -839,7 +839,7 @@ if __name__ == '__main__':
     cpus = cpu_count()
     print("Número de cpus:", cpus)
     print("Prueba:", VERSION)
-    print("NUEVO")
+    print("NUEVO r0")
     sys.stdout.flush()
     try:
         f = open('/home/maxia/myapp/constants.json', "r")
