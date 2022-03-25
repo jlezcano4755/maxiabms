@@ -48,11 +48,15 @@ if $(is_in_remote ${branch}); then
 
 	# Configuraciónde Grafana
 	service grafana-server stop >/dev/null 2>&1 &
-	lanm $! 'Configuring Grafana...' && clear
+	lanm $! 'Stoping Grafana service...' && clear
 	cp /tmp/maxiabms/config/grafana/grafana_icon.svg /usr/share/grafana/public/img/
 	cp /tmp/maxiabms/config/grafana/fav32.png /usr/share/grafana/public/img/
 	#Plantillas de Correo Grafana a MaxiaBMS
 	cp -r /tmp/maxiabms/config/grafana/emails/ /usr/share/grafana/public/
+	/tmp/maxiabms/config/grafana/traduccion-maxiabms.sh >/dev/null 2>&1 &
+	lanm $! 'Configuring Grafana...' && clear
+	
+	
 	service grafana-server start >/dev/null 2>&1 &
 	lanm $! 'Starting Grafana service...' && clear
 	
