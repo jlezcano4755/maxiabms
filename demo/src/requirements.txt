@@ -1,3 +1,0 @@
-numpy==1.22.3
-paho-mqtt==1.6.1
-uModbus==1.0.4
