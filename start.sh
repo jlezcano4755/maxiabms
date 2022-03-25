@@ -8,7 +8,6 @@ function is_in_remote() {
     fi
 }
 
-apt-get install git -y
 branch=${1}
 if $(is_in_remote ${branch}); then
 	cd /tmp
