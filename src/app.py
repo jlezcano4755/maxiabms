@@ -180,7 +180,7 @@ def mqtt_send1():
 
 def mqtt_MPE1(cola, shm_1):
     #curr_minute = cola.get(True)
-    print(curr_minute)
+    #print(curr_minute)
     #client_ = mqtt_send()
     slv1_array_ = ndarray(core_array_1.shape, dtype=core_array_1.dtype, buffer=shm_1.buf)
     time.sleep(5)
