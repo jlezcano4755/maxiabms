@@ -190,7 +190,7 @@ def mqtt_MPE1(cola, shm_1):
                 client_.publish("sensores", (slv1_array_[i]['data']) + " valor=" + str(slv1_array_[i]['valor']), qos=0,
                                 retain=False)
         for i in range(len(slv1_array_)):
-            if i==1:
+            if i==12:
                 print("Register 30073:", slv1_array_[i]['data'] + " value=" + str(slv1_array_[i]['valor']),"time:", datetime.now())
         time.sleep(0.3)
 
@@ -735,10 +735,6 @@ def cada_mes(cola, shm_1):
     subsidio_ley15 = 0.6
     var_combustible_btd = 0
 
-    print("subsidio_ley15", subsidio_ley15)
-    curr_dia_mes = cola.get(True)
-    print("curr_month:", curr_dia_mes.month)
-    sys.stdout.flush()
     #client_ = mqtt_send()
     valor_actualtr1 = 0
     tr1EnergiaAAcumuladafn = 0
@@ -840,7 +836,6 @@ if __name__ == '__main__':
     cpus = cpu_count()
     print("Número de cpus:", cpus)
     print("Prueba:", VERSION)
-    print("NUEVO r1000")
     sys.stdout.flush()
     try:
         f = open('/home/maxia/myapp/constants.json', "r")
@@ -925,12 +920,12 @@ if __name__ == '__main__':
 
     time.sleep(2)
 
-    task2.start()
-    task3.start()
-    task4.start()
-    task5.start()
-    task6.start()
-    task7.start()
+    #task2.start()
+    #task3.start()
+    #task4.start()
+    #task5.start()
+    #task6.start()
+    #task7.start()
 
     mqtt_MPE1_task.start()
 
