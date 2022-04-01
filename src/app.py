@@ -191,8 +191,7 @@ def mqtt_MPE1(cola, shm_1):
                                 retain=False)
         for i in range(len(slv1_array_)):
             if i==1:
-                #print("Energy Sensor:", slv1_array_[i]['data'] + " value=" + str(slv1_array_[i]['valor']),"time:", datetime.now())
-                print("sensor:", slv1_array_[i]['data'] + " value=" + str(slv1_array_[i]['valor']),"time:", datetime.now())
+                print("Register 30073:", slv1_array_[i]['data'] + " value=" + str(slv1_array_[i]['valor']),"time:", datetime.now())
         time.sleep(0.3)
 
 
@@ -218,7 +217,7 @@ def lecturaregistrostr1(cola, shm_1):
     slv1_array[9]['data'] = 'tr1APowerT'
     slv1_array[10]['data'] = 'tr1FPower'
     slv1_array[11]['data'] = 'tr1Frecuencia'
-    slv1_array[12]['data'] = 'tr1Accumulated_Energy'
+    slv1_array[12]['data'] = 'Total_Import_Active_Energy'
     slv1_array[13]['data'] = 'tr1EnergiaRAcumulada'
     slv1_array[14]['data'] = 'tr1DPPower'
     slv1_array[15]['data'] = 'tr1DUPower'
