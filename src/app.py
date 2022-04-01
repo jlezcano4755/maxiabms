@@ -190,7 +190,7 @@ def mqtt_MPE1(cola, shm_1):
                 client_.publish("sensores", (slv1_array_[i]['data']) + " valor=" + str(slv1_array_[i]['valor']), qos=0,
                                 retain=False)
         for i in range(len(slv1_array_)):
-            if i==3:
+            if i==1:
                 #print("Energy Sensor:", slv1_array_[i]['data'] + " value=" + str(slv1_array_[i]['valor']),"time:", datetime.now())
                 print("sensor:", slv1_array_[i]['data'] + " value=" + str(slv1_array_[i]['valor']),"time:", datetime.now())
         time.sleep(0.3)
