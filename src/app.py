@@ -264,11 +264,11 @@ def lecturaregistrostr1(cola, shm_1):
                 if slv1_read == 1:
                     if response1 is not None:
                         slv1_array[0]['valor'] = round(combine(response1[0], response1[1]),
-                                                       8)  # Phase 1 line to neutral volts
+                                                       2)  # Phase 1 line to neutral volts
                         slv1_array[1]['valor'] = round(combine(response1[2], response1[3]),
-                                                       8)  # Phase 2 line to neutral volts
+                                                       2)  # Phase 2 line to neutral volts
                         slv1_array[2]['valor'] = round(combine(response1[4], response1[5]),
-                                                       8)  # Phase 3 line to neutral volts
+                                                       2)  # Phase 3 line to neutral volts
                         slv1_array[3]['valor'] = round(combine(response1[6], response1[7]), 2)  # Phase 1 current
                         slv1_array[4]['valor'] = round(combine(response1[8], response1[9]), 2)  # Phase 2 current
                         slv1_array[5]['valor'] = round(combine(response1[10], response1[11]), 2)  # Phase 3 current
